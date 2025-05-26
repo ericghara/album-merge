@@ -51,9 +51,13 @@ if __name__ == '__main__':
                                      During merge files are renamed based on EXIF timestamp. 
                                      Collisions are resolved by adding a suffix number to the file stem.
                                      ''')
-    parser.add_argument('-s', '--src', required=True)
-    parser.add_argument('-d', '--dst', required=True)
-    parser.add_argument('-e', '--ext', action='append')
+    parser.add_argument('-s', '--src', required=True,
+                        help="source folder"
+                        )
+    parser.add_argument('-d', '--dst', required=True,
+                        help="destination folder, will be created if does not exist")
+    parser.add_argument('-e', '--ext', action='append',
+                        help="file extensions, multiple may be specified (i.e. --ext=jpg --ext=heic OR --ext=jpg,heic)")
 
     args = parser.parse_args()
     print(f"src={args.src}, dst={args.dst}, ext={args.ext}")
